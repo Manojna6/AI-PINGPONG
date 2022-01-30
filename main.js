@@ -12,6 +12,11 @@ var paddle1Y;
 var  playerscore =0;
 var audio1;
 var pcscore =0;
+
+var rwX = "";
+var rwY = "";
+
+var rwScore = "";
 //ball x and y and speedx speed y and radius
 var ball = {
     x:350/2,
@@ -30,10 +35,23 @@ function setup(){
   video.hide();
 
   posenet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
 }
 
 function modelLoaded() {
   console.log("model Loaded");
+}
+
+function gotPoses(error, results) {
+  if(error){
+		console.log(error);
+	}
+
+	if(results.length > 0){
+		console.log(results);
+		rwX = results[0].pose.right_wrist.x;
+		rwY = results[0].pose.right_wrist.y;
+	}
 }
 
 function draw(){
@@ -75,6 +93,13 @@ function draw(){
    
    //function move call which in very important
     move();
+
+    //if cond.
+    if (rwScore > 0.2) {
+      fill('#38AECC');
+      stroke('#38AECC');
+      circle(rwX, rwY, 5)
+    }
 }
 
 
