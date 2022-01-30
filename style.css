@@ -1,0 +1,32 @@
+.heading{
+    width:100%;
+    text-align:left;
+}
+.heading h3{
+    display:inline;
+}
+.heading button{
+    float:right;
+    border:1px solid white;
+}
+#start, #status{
+    font-size: 22px;
+}
+#restart{
+    font-size: larger;
+}
+.modal-content{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color:rgb(128, 128, 237);
+    color:white;
+}
+canvas{
+    border-radius: 20px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: mediumslateblue;
+    box-shadow:5px 5px 5px rgb(128, 128, 237);
+}
+#footer{
+    color: white;
+}
